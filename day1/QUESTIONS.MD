@@ -4,7 +4,7 @@ A1: 48 GB
 
 Q2: What is the issue with the following code sample?
 
-A2: The code is attempting to reassign to an immutable variable. 
+A2: It's attempting to reassign to an immutable variable. 
 
 actor { var counter : Nat = 0; public func increment_counter() : async () { counter := counter + 1; }; }
 
