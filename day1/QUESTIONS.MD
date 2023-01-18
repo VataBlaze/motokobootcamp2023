@@ -1,6 +1,6 @@
 Q1: How much is the current memory capacity of a canister?
 
-A1: 48 GiB
+A1: 48 GB
 
 Q2: What is the issue with the following code sample?
 
