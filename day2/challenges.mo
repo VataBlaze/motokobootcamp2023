@@ -54,19 +54,16 @@ actor {
 
     // 5 - Write a function find_duplicates that takes an array of natural numbers and returns a new array containing all duplicate numbers. The order of the elements in the returned array should be the same as the order of the first occurrence in the input array.
     // find_duplicates(a : [Nat]) -> async [Nat]
-     public query func find_duplicates(a : [Nat]) : async [Nat] {
-        var duplicates = Buffer.Buffer<Nat>(0);
-        var original = Buffer.Buffer<Nat>(0);
-        for (number in a.vals()) {
-            if(Buffer.contains<Nat>(original,number, func (x : Nat, y: Nat) : Bool {x==y})){
-               duplicates.add(number);
-            };
-            original.add(number);
+    public query func find_duplicates(a : [Nat]) : async [Nat] {
+    var new_array : [Nat] = [];
+    for (v in a.vals()) {
+      let duplicate : [Nat] = Array.filter<Nat>(a, func (x: Nat) : Bool {x == v});
+      if(duplicate.size() > 1) {
+        new_array := [v];
         };
-        return duplicates.toArray();
     };
-
-
+      return new_array;
+  };
 
     // 6 -Write a function convert_to_binary that takes a natural number n and returns a string representing the binary representation of n.
     // convert_to_binary(n : Nat) -> async Text
